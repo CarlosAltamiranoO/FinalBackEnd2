@@ -68,7 +68,7 @@ class ViewController {
         const productsWin = []
         const products = await cartService.ArrayProductsCart(cartId)
 
-        if(!products) console.log("problema")
+        if(products.length === 0) return res.redirect("/products");
 
         for (const item of products) {
             const product = await productService.getProductById(item.product._id) // obtiene producto para modificar porteriomente
@@ -90,7 +90,7 @@ class ViewController {
         };
         await ticketService.registerTicket(ticket);
         await cartService.emptyCart(cartId);
-        res.json(ticket)
+        res.render("purchase", {ticket: ticket});
     }
 }
 export default ViewController

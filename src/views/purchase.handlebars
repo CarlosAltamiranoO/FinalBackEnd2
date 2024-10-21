@@ -1,0 +1,27 @@
+<div>
+    <h2>GRACIAS POR SU COMPRA!!</h2>
+    <hr>
+    <hr>
+    <h3>datos cliente:</h3><br>
+    <h4>Email: {{ticket.email}}</h4>
+    <hr>
+    <h3>ticket:</h3><br>
+    <h5>fecha: {{ticket.fecha}} --- codigo: {{ticket.codigo}}</h5>
+    <br>
+    <h4>listado de compra:</h4>
+    {{#each ticket.productos}}
+    <h4>Producto: {{title}}| cartidad: {{quantity}}| ....................... consto: ${{price}}</h4>
+    {{/each}}
+    <br>
+    <h4>Total Compra: ${{ticket.total}}</h4><br><br>
+    <hr><hr><br>
+    <h4>Productos Rechasdos: [ {{ticket.productosrechasados}}] </h4>
+    <hr>
+</div>
+<br>
+<form class="formulario-logout" action="/api/sessions/logout" method="POST">
+    <button type="submit">Logout</button>
+</form>
+<br><br>
+<hr><br><br>
+<a href="/products">continuar comprar</a>
