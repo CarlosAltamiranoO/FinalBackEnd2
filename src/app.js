@@ -8,6 +8,8 @@ import viewsRouter from './routers/viewsRouter.js';
 import passport from "passport";
 import initializePassport from "./config/config.js";
 import "./database.js";
+import websocket from "./websocket.js";
+import {Server} from "socket.io"
 
 
 const app = express();
@@ -29,6 +31,8 @@ app.use("/api/carts", cartsRouter);
 app.use("/api/sessions", sessionRouter);
 app.use("/", viewsRouter);
 
-app.listen(PUERTO, () => {
+const httpServer = app.listen(PUERTO, () => {
     console.log(`Servidor escuchando en el puerto ${PUERTO}`);
 });
+const socketServer = new Server(httpServer)
+websocket(socketServer)

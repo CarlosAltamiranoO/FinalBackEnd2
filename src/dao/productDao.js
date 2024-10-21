@@ -6,8 +6,8 @@ class ProductDao {
     }
 
     async find(query) {
+        if(!query) return await ProductModel.find(); // para el websocket
         return await ProductModel.paginate({sort: query.sort, query: query.query},{limit: parseInt(query.limit), page: parseInt(query.page)});
-        //return await ProductModel.find()
     }
 
     async save(productData) {
