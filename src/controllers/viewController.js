@@ -1,6 +1,7 @@
 import productService from "../services/productService.js";
 import cartService from "../services/cartService.js";
 import userService from "../services/userService.js";
+import ticketService from "../services/ticketService.js";
 import { generateUniqueTicketCode, calculateTotalPrice } from "../utils/ticketUtils.js";
 
 class ViewController {
@@ -87,6 +88,8 @@ class ViewController {
             total: calculateTotalPrice(productsWin),
             productosrechasados: productsFail
         };
+        await ticketService.registerTicket(ticket);
+        await cartService.emptyCart(cartId);
         res.json(ticket)
     }
 }
