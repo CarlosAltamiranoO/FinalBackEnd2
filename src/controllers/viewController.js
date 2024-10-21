@@ -73,7 +73,7 @@ class ViewController {
             const product = await productService.getProductById(item.product._id) // obtiene producto para modificar porteriomente
             if (product.stock >= item.quantity) {
                 product.stock -= item.quantity //descontamos al producto los que se despachan
-                //await productService.updateProduct(product._id, product) // actualizamos el producto de la BS con los nuevos stock
+                await productService.updateProduct(product._id, product) // actualizamos el producto de la BS con los nuevos stock
                 productsWin.push({quantity: item.quantity, title: product.title, price: product.price })  // se agrega al array el item de producto del carrito ya para despache
             }
             else  productsFail.push(item.product._id) // se guarda en array de descarte

@@ -18,7 +18,7 @@ if (btnEnviar) {
                 const title = inputTitle.value
                 const description = inputDescription.value
                 const price = parseFloat(inputPrice.value)
-                const thumbnail = inputThumbnail.value
+                const thumbnail = inputThumbnail.valu
                 const status = (/false/i).test(inputstatus.value)
                 const code = inputCode.value
                 const stock = parseInt(inputStock.value)
@@ -40,7 +40,6 @@ if (btnBorrar) {
 }
 serverSocket.on('actualizarProductos', productos => {
     const divProductos = document.querySelector('#productos')
-    console.log(productos)
     if (divProductos) {
         let mensaje = ""
         for (producto of productos) {

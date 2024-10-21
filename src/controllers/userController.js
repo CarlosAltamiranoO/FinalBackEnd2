@@ -4,23 +4,20 @@ import UserDTO from "../dto/userDto.js";
 
 class UserController {
     async register(req, res) {
-        const {first_name, last_name, email, age, password} = req.body; 
-        
-        try {
-            const nuevoUsuario = await userService.registerUser({first_name, last_name, email, age, password}); 
-            
-            console.log(nuevoUsuario);
+        const { first_name, last_name, email, age, password } = req.body;
 
+        try {
+            const nuevoUsuario = await userService.registerUser({ first_name, last_name, email, age, password });
 
             const token = jwt.sign({
                 usuario: `${nuevoUsuario.first_name} ${nuevoUsuario.last_name}`,
                 email: nuevoUsuario.email,
                 role: nuevoUsuario.role,
                 cart: nuevoUsuario.cart
-            }, "coderhouse", {expiresIn: "1h"});
+            }, "coderhouse", { expiresIn: "1h" });
 
-            
-            res.cookie("coderCookieToken", token, {maxAge: 3600000, httpOnly: true});
+
+            res.cookie("coderCookieToken", token, { maxAge: 3600000, httpOnly: true });
             res.redirect("/api/sessions/current");
         } catch (error) {
             console.log(error)
@@ -30,7 +27,7 @@ class UserController {
     }
 
     async login(req, res) {
-        const {email, password} = req.body; 
+        const { email, password } = req.body;
 
         try {
             const user = await userService.loginUser(email, password);
@@ -39,9 +36,9 @@ class UserController {
                 email: user.email,
                 role: user.role,
                 cart: user.cart
-            }, "coderhouse", {expiresIn: "1h"});
-    
-            res.cookie("coderCookieToken", token, {maxAge: 3600000, httpOnly: true});
+            }, "coderhouse", { expiresIn: "1h" });
+
+            res.cookie("coderCookieToken", token, { maxAge: 3600000, httpOnly: true });
             res.redirect("/api/sessions/current");
         } catch (error) {
             res.status(500).send("Error del server");
@@ -50,11 +47,10 @@ class UserController {
     }
 
     async current(req, res) {
-        if(req.user) {
+        if (req.user) {
             const user = req.user;
-            console.log(req.user)
-            const userDTO = new UserDTO(user); 
-            res.render("home", {user: userDTO})
+            const userDTO = new UserDTO(user);
+            res.render("home", { user: userDTO })
         } else {
             res.send("No autorizado");
         }
