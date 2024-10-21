@@ -28,5 +28,17 @@ export default (io) => {
             }
             console.log("error al intentar borrar")
         })
+        socket.on('modificar', async query => {
+    
+            if (query) {
+                try {
+                    const mg = await productService.updateProduct(query.id, query.data)//manager.deleteProduct(parseInt(identificador))
+                }
+                catch (error) {
+                    io.sockets.emit('error', error.message)
+                }
+                io.sockets.emit('actualizarProductos', await productService.getProducts())
+            }
+        })
     })
 }

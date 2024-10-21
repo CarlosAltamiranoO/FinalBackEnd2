@@ -2,6 +2,7 @@ const serverSocket = io('http://localhost:8080')
 
 const btnEnviar = document.querySelector('#btnEnviar')
 const btnBorrar = document.querySelector('#btnBorrar')
+const btnModificar = document.querySelector('#btnModificar')
 
 if (btnEnviar) {
     btnEnviar.addEventListener('click',
@@ -40,6 +41,21 @@ if (btnBorrar) {
         }
     )
 }
+if (btnModificar) {
+    btnModificar.addEventListener('click',
+        evento => {
+            const variable = document.getElementById("select").value;
+            const valor = document.querySelector('#inputModificar').value
+            const id = document.querySelector('#inputModificaId').value
+            const data = {
+                [variable]: valor,
+            }
+            serverSocket.emit('modificar', {data, id})
+
+        }
+    )
+}
+
 serverSocket.on('actualizarProductos', productos => {
     const divProductos = document.querySelector('#productos')
     if (divProductos) {

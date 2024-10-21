@@ -1,5 +1,6 @@
-<h1>productos</h1>
-<br />
+
+<br>
+<h4>Agregar producto</h4><br>
 <label>titulo: </label><input id="inputTitle" name="title" type="text"><br />
 <label>descripcion:</label><input id="inputDescription" name="description" type="text"><br />
 <label>presio: $</label><input id="inputPrice" name="price" type="text"><br />
@@ -11,11 +12,26 @@
 
 <button type="button" class="btn btn-success" id="btnEnviar">enviar</button>
 <hr>
-<br />
+<br>
+<h4>Eliminar producto</h4><br>
 <label>id del producto a eliminar:</label><input id="inputId" name="id" type="text"><br />
 <p id="error"></p>
 <button type="button" class="btn btn-danger" id="btnBorrar">Borrar</button><br /><br />
-
+<hr>
+<br>
+<h4>Modificar producto</h4><br>
+<label >id del producto a modificar: </label><input type="text" name="idModificar" id="inputModificaId"><br><br>
+<select name="select" id="select">
+  <option value="title" selected>Titulo</option>
+  <option value="description">Descripcion</option>
+  <option value="price">precio</option>
+  <option value="thumbnail">thumbnail</option>
+  <option value="category">categoria</option>
+  <option value="stock">stock</option>
+  <option value="stock">status</option>
+</select>
+<label >valor a cambiar: </label><input type="text" name="modificar" id="inputModificar"><br>
+<br><button type="submit" class="btn btn-success" id="btnModificar">Modificar</button>
 <hr>
 
 <h3>Lista de Productos</h3>
