@@ -5,7 +5,6 @@ export default (io) => {
     io.on('connection', async socket => {
 
         console.log(`nuevo cliente conectado! socket id #${socket.id}`)
-        console.log(await productService.getProducts())
         io.sockets.emit('actualizarProductos', await productService.getProducts()) // ver si funciona
     
         socket.on('nuevoproducto', async producto => {
@@ -27,6 +26,7 @@ export default (io) => {
                 }
                 io.sockets.emit('actualizarProductos', await productService.getProducts())
             }
+            console.log("error al intentar borrar")
         })
     })
 }

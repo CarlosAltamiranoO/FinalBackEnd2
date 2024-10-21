@@ -13,16 +13,18 @@ if (btnEnviar) {
             const inputThumbnail = document.querySelector('#inputThumbnail')
             const inputstatus = document.querySelector('#inputStatus')
             const inputCode = document.querySelector('#inputCode')
+            const inputCategory = document.querySelector('#inputCategory')
             const inputStock = document.querySelector('#inputStock')
-            if (inputCode && inputStock && inputDescription && inputPrice && inputTitle ) {
+            if (inputCode && inputStock && inputDescription && inputPrice && inputTitle && inputCategory) {
                 const title = inputTitle.value
                 const description = inputDescription.value
+                const category = inputCategory.value
                 const price = parseFloat(inputPrice.value)
                 const thumbnail = inputThumbnail.valu
                 const status = (/false/i).test(inputstatus.value)
                 const code = inputCode.value
                 const stock = parseInt(inputStock.value)
-                serverSocket.emit('nuevoproducto', { title, description, price, thumbnail, code, stock, status })
+                serverSocket.emit('nuevoproducto', { title, description, price, thumbnail, code, stock, status, category })
             }
         }
     )
@@ -43,7 +45,7 @@ serverSocket.on('actualizarProductos', productos => {
     if (divProductos) {
         let mensaje = ""
         for (producto of productos) {
-            mensaje += `<h4> - ID: ${producto._id} | Titulo: ${producto.title} | Desripcion : ${producto.description} | codigo: ${producto.code} | Precio: ${producto.price}  | Stock: ${producto.stock} |
+            mensaje += `<h4> - ID: ${producto._id} | Titulo: ${producto.title} | Categoria: ${producto.category} | codigo: ${producto.code} | Precio: ${producto.price}  | Stock: ${producto.stock} |
             status: ${producto.status}<h4/>`
         }
         divProductos.innerHTML = mensaje
