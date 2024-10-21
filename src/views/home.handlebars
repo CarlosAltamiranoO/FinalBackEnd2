@@ -1,0 +1,12 @@
+<div class="contenedor-bienvenida">
+    <h2>Bienvenido !!</h2>
+    <h3>Email: {{user.email}}</h3>
+    <h3>Rol: {{user.role}}</h3>
+    <h3>cart: {{user.cart}}</h3>
+</div>
+
+<form class="formulario-logout" action="/api/sessions/logout" method="POST">
+    <button type="submit">Logout</button>  
+</form>
+<br><br>
+<a href="/products">comensar a comprar</a>

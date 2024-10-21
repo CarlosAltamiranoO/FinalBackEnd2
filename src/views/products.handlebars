@@ -1,0 +1,32 @@
+<h1>Productos</h1>
+<hr>
+<h4 id="respuesta"></h4>
+<hr>
+<br>
+<a href="/cart/{{carrito}}"><h4>ir al carrito</h4></a>
+<br>
+<div class="product-container">
+    {{#each productos}}
+    <div class="product-card">
+        <h2>{{title}}</h2>
+        <p>id: {{_id}}</p>
+        <p>{{description}}</p>
+        <p>Price: ${{price}}</p>
+        <p>Category: {{category}}</p>
+        <button class="agergarProducto" data-product-id="{{this._id}}" data-product-name=" {{title}}">Agregar al Carrito</button>
+    </div>
+    {{/each}}
+</div>
+<p id="carrito" style="display: none;">{{carrito}}</p> 
+<div class="pagination-links">
+    {{#if hasPrevPage}}
+        <a href="/products?page={{prevPage}}">Anterior</a>
+    {{/if}}
+
+    {{#if hasNextPage}}
+        <a href="/products?page={{nextPage}}">Siguiente</a>
+    {{/if}}
+</div>
+
+<p class="page-info">Página {{currentPage}} de {{totalPages}}</p>
+<script src="/js/product.js"></script>

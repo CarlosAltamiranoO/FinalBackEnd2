@@ -1,0 +1,13 @@
+<h3>carrito</h3>
+<p id="prueba" style="display: none;">{{cartId}}</p>
+<ul>
+    {{#each productos}}
+    <li> <strong>cantidad: {{quantity}}</strong> | Titulo: {{product.title}} | Precio: {{product.price}} ||<button type="button" class="eliminarProducto" data-product-id="{{product._id}}">eliminar</button></li><br>
+    {{/each}}
+</ul>
+
+<button type="button" class="vaciarCarrito">Vaciar Carrito</button>
+<br>
+<a href= "/{{cartId}}/purchase">Finalizar Compra</a>
+
+<script src="/js/cart.js"></script>
