@@ -9,11 +9,12 @@ import passport from "passport";
 import initializePassport from "./config/config.js";
 import "./database.js";
 import websocket from "./webSocket.js";
-import {Server} from "socket.io"
+import {Server} from "socket.io";
+import configEnv from './config/configEnv.js';
 
 
 const app = express();
-const PUERTO = 8080;
+const PUERTO = configEnv.port;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
