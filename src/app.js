@@ -8,7 +8,7 @@ import viewsRouter from './routers/viewsRouter.js';
 import passport from "passport";
 import initializePassport from "./config/config.js";
 import "./database.js";
-import websocket from "./websocket.js";
+import websocket from "./webSocket.js";
 import {Server} from "socket.io"
 
 
