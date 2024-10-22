@@ -1,5 +1,5 @@
-const eliminarBotones = document.querySelectorAll('.eliminarProducto');
-const vaciarCarritoButton = document.querySelector('.vaciarCarrito');
+const eliminarBotones = document.querySelectorAll('#eliminarProducto');
+const vaciarCarritoButton = document.querySelector('#vaciarCarrito');
 
 eliminarBotones.forEach(function (boton) {
 

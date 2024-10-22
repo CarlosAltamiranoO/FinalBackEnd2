@@ -1,13 +1,21 @@
+<br>
+<form class="formulario-logout" action="/api/sessions/logout" method="POST">
+    <button class="btn btn-warning"  type="submit">Logout</button>  
+</form>
+<br>
+<br>
+<a class="btn btn-success" href= "/products/">seguir comprando</a>
+<br><br>
 <h3>carrito</h3>
 <p id="prueba" style="display: none;">{{cartId}}</p>
 <ul>
     {{#each productos}}
-    <li> <strong>cantidad: {{quantity}}</strong> | Titulo: {{product.title}} | Precio: {{product.price}} ||<button type="button" class="eliminarProducto" data-product-id="{{product._id}}">eliminar</button></li><br>
+    <li> <strong>cantidad: {{quantity}}</strong> | Titulo: {{product.title}} | Precio: {{product.price}} ||<button type="button" class="btn btn-danger" id="eliminarProducto" data-product-id="{{product._id}}">eliminar</button></li><br>
     {{/each}}
 </ul>
-
-<button type="button" class="vaciarCarrito">Vaciar Carrito</button>
-<br>
-<a href= "/{{cartId}}/purchase">Finalizar Compra</a>
+<br><br>
+<button type="button" class="btn btn-danger" id="vaciarCarrito">Vaciar Carrito</button>
+<br><br>
+<a class="btn btn-success" href= "/{{cartId}}/purchase">Finalizar Compra</a>
 
 <script src="/js/cart.js"></script>

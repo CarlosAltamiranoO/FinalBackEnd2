@@ -1,4 +1,4 @@
-const agegarCarrito = document.querySelectorAll('.agergarProducto');
+const agegarCarrito = document.querySelectorAll('#agergarProducto');
 agegarCarrito.forEach(function (boton) {
 
     boton.addEventListener('click', async () => {

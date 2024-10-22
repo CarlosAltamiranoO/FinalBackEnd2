@@ -14,13 +14,14 @@
     {{/each}}
     <br>
     <h4>Total Compra: ${{ticket.total}}</h4><br><br>
-    <hr><hr><br>
+    <hr>
+    <hr><br>
     <h4>Productos Rechasdos: [ {{ticket.productosrechasados}}] </h4>
     <hr>
 </div>
 <br>
 <form class="formulario-logout" action="/api/sessions/logout" method="POST">
-    <button type="submit">Logout</button>
+    <button class="btn btn-warning" type="submit">Logout</button>
 </form>
 <br><br>
 <hr><br><br>
