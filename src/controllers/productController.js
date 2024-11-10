@@ -13,9 +13,10 @@ class ProductController {
     }
 
     async getProductById(req, res) {
-        const { id } = req.params;
+        const { pid } = req.params;
+        console.log ( pid)
         try {
-            const product = await productService.getProductById(id);
+            const product = await productService.getProductById(pid);
             if (!product) return res.status(404).send("Producto no encontrado");
             res.json(product);
         } catch (error) {
@@ -37,9 +38,9 @@ class ProductController {
     }
 
     async updateProduct(req, res) {
-        const { id } = req.params;
+        const { pid } = req.params;
         try {
-            const updateProduct = await productService.updateProduct(id, req.body);
+            const updateProduct = await productService.updateProduct(pid, req.body);
             if (!updateProduct) return res.status(404).send("Producto no encontrado");
             res.json(updateProduct);
         } catch (error) {
@@ -51,9 +52,9 @@ class ProductController {
     }
 
     async deleteProduct(req, res) {
-        const { id } = req.params;
+        const { pid } = req.params;
         try {
-            const deleteProduct = await productService.deleteProduct(id);
+            const deleteProduct = await productService.deleteProduct(pid);
             if (!deleteProduct) return res.status(404).send("Producto no encontrado");
             res.json({ message: "Producto eliminado!" });
         } catch (error) {
