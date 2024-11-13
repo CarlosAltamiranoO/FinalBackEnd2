@@ -26,7 +26,6 @@ export default (io) => {
                 }
                 io.sockets.emit('actualizarProductos', await productService.getProducts())
             }
-            console.log("error al intentar borrar")
         })
         socket.on('modificar', async query => {
     

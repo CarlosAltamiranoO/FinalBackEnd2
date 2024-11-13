@@ -12,7 +12,11 @@
 <label>codigo: </label><input id="inputCode" name="code" type="text"><br />
 <label>categoria: </label><input id="inputCategory" name="category" type="text"><br />
 <label>stock: </label><input id="inputStock" name="stock" type="text"><br />
-<label>status: </label><input id="inputStatus" name="status" type="text"><br />
+{{!-- <label>status: </label><input id="inputStatus" name="status" type="text"><br /> --}}
+<label>status: </label><select name="status" id="inputStatus">
+<option value="true" selected>true</option>
+<option value="false">false</option>
+</select><br>
 
 <button type="button" class="btn btn-success" id="btnEnviar">enviar</button>
 <hr>

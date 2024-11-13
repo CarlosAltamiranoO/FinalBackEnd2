@@ -21,8 +21,9 @@ if (btnEnviar) {
                 const description = inputDescription.value
                 const category = inputCategory.value
                 const price = parseFloat(inputPrice.value)
-                const thumbnail = inputThumbnail.valu
-                const status = (/false/i).test(inputstatus.value)
+                const thumbnail = inputThumbnail.value
+                let status = true;
+                if (inputstatus.value === "false") status = false;
                 const code = inputCode.value
                 const stock = parseInt(inputStock.value)
                 serverSocket.emit('nuevoproducto', { title, description, price, thumbnail, code, stock, status, category })
